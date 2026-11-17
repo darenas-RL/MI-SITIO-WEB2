@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de evaluación de calificaciones</title>
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <style>
+        /* DISEÑO DEL SISTEMA DE CALIFICACIONES */
+
+        #calificaciones {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 40px 20px;
+            background: #eaf2e9;
+        }
+
+        #calificaciones * {
+            box-sizing: border-box;
+        }
+
+        #calificaciones .contenedor {
+            width: 425px;
+            max-width: 100%;
+            padding: 35px 25px;
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.20);
+            text-align: center;
+            font-family: "Times New Roman", serif;
+        }
+
+        #calificaciones h1 {
+            margin: 0 0 25px;
+            font-size: 28px;
+            color: #245b2a;
+        }
+
+        #calificaciones label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 19px;
+            text-align: left;
+            color: #222;
+        }
+
+        #calificaciones input {
+            display: block;
+            width: 100%;
+            padding: 12px 10px;
+            margin-bottom: 18px;
+            font-size: 16px;
+            border: 1px solid green;
+            border-radius: 8px;
+            background: white;
+        }
+
+        #calificaciones input:focus {
+            outline: 2px solid #a5d6a7;
+            border-color: #2e7d32;
+        }
+
+        #calificaciones button {
+            display: block;
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 17px;
+            color: white;
+            background: #4caf50;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #calificaciones button:hover {
+            background: #43a047;
+        }
+
+        #calificaciones #resultado {
+            margin-top: 25px;
+            padding: 15px;
+            background: #f1f8f1;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 17px;
+            overflow-wrap: break-word;
+        }
+
+        #calificaciones #resultado h3 {
+            text-align: center;
+            color: #245b2a;
+        }
+
+        #calificaciones .aprobado {
+            color: green;
+            font-weight: bold;
+        }
+
+        #calificaciones .reprobado {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* ADAPTACIÓN PARA CELULARES */
+
+        @media (max-width: 480px) {
+            #calificaciones {
+                padding: 25px 12px;
+            }
+
+            #calificaciones .contenedor {
+                padding: 25px 18px;
+            }
+
+            #calificaciones h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+
+    <header>
+        <img src="logo.jpg" alt="Logo">
+    </header>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+
+    <nav>
+        <ul>
+
+            <li>
+                <a href="index.html">Conoceme</a>
+
+                <ul>
+                    <li><a href="informacion.html">Información Personal</a></li>
+                    <li><a href="pasatiempos.html">Pasatiempos</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Segunda Parcial</a>
+
+                <ul>
+                    <li><a href="posiciones.html">Posiciones en HTML</a></li>
+                    <li><a href="mundodigital.html">Mundo Digital</a></li>
+                    <li><a href="Pactica de posiciones.html">Práctica de Posiciones</a></li>
+                    <li><a href="comunidad.html">Tecnologías digitales</a></li>
+                    <li><a href="temperaturas.html">Conversor de Temperaturas</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Tercer Parcial</a>
+                <ul>
+                <li><a href="calificaciones.html">Calificaciones.</a></li>
+            </ul>
+            </li>
+
+        </ul>
+    </nav>
+
+    <main>
+
+        <section id="calificaciones">
+
+            <div class="contenedor">
+
+                <h1>Sistema de evaluación de calificaciones</h1>
+
+                <label for="nombre">Nombre del estudiante:</label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Ingresa el nombre"
+                >
+
+                <label for="cal1">Primera calificación:</label>
+
+                <input
+                    type="number"
+                    id="cal1"
+                    min="0"
+                    max="10"
+                    step="any"
+                    placeholder="Calificación 1"
+                >
+
+                <label for="cal2">Segunda calificación:</label>
+
+                <input
+                    type="number"
+                    id="cal2"
+                    min="0"
+                    max="10"
+                    step="any"
+                    placeholder="Calificación 2"
+                >
+
+                <label for="cal3">Tercera calificación:</label>
+
+                <input
+                    type="number"
+                    id="cal3"
+                    min="0"
+                    max="10"
+                    step="any"
+                    placeholder="Calificación 3"
+                >
+
+                <button type="button" onclick="calcularPromedio()">
+                    Calcular promedio
+                </button>
+
+                <div id="resultado"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <img src="dos líneas centrado v3.png" alt="">
+
+        <div>
+            <p><strong>Universidad de Colima</strong></p>
+            <p>Bachillerato 8</p>
+            <p>Programación en Internet I</p>
+        </div>
+
+    </footer>
+
+    <!-- ARCHIVO JAVASCRIPT -->
+
+    <script src="calificaciones.js"></script>
+
+</body>
+
+</html>
